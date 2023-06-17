@@ -63,6 +63,7 @@
 		"@rollup/plugin-node-resolve": "^15.1.0",
 		"@rollup/plugin-terser": "^0.4.3",
 		"@rollup/plugin-typescript": "^11.1.1",
+		"@types/dom-speech-recognition": "^0.0.1",
 		"@types/jest": "^29.5.2",
 		"@types/node": "^20.3.1",
 		"chalk": "^5.2.0",
