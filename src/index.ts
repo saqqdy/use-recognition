@@ -1,6 +1,7 @@
-import { ref, shallowRef, watch } from 'vue-demi'
-import type { Ref, ShallowRef } from 'vue-demi'
-import { inBrowser, isChrome } from './utils'
+import { ref } from 'vue-demi'
+import type { Ref } from 'vue-demi'
+import { inBrowser } from 'js-cool'
+import { isChrome } from './utils'
 
 declare global {
 	interface Window {
@@ -67,29 +68,10 @@ function useRecognition(options: RecognitionOptions) {
 
 	bindHandler()
 
-	if (!ready) {
-		ready = ref(!isChrome)
+	if (!ready) ready = ref(!isChrome)
+	if (!status) status = ref('end')
+	if (!result) result = ref('')
 
-		// exec
-		// watch([ready, voice, effects], ([isReady, voiceValue, effectsValue]) => {
-		// 	if (isReady && voiceValue && effectsValue.length > 0) {
-		// 		for (const { content, utterOptions } of effectsValue) {
-		// 			utter.value = new SpeechSynthesisUtterance(content)
-		// 			let action: keyof UtterOptions
-		// 			for (action in utterOptions) {
-		// 				utter.value[action] = utterOptions[action] as never
-		// 			}
-		// 			utter.value.voice = voiceValue
-		// 			utter.value.pitch = options.pitch
-		// 			utter.value.rate = options.rate
-		// 			utter.value.volume = options.volume
-		// 			speech.speak(utter.value)
-		// 		}
-		// 		effects.value = []
-		// 		utter.value = null
-		// 	}
-		// })
-	}
 	if (!ready.value) {
 		const eventName = options.preferTouchEvent ? 'touchend' : 'click'
 		// init
@@ -189,6 +171,8 @@ function useRecognition(options: RecognitionOptions) {
 
 	return {
 		ready,
+		status,
+		result,
 		recognition,
 		start,
 		abort,
