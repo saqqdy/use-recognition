@@ -16,6 +16,8 @@ A composition api for SpeechSynthesis, supports vue2.0 and vue3.0
 
 <div style="text-align: center; margin-bottom: 20px;" align="center">
 
+## This project has been moved to [https://github.com/saqqdy/uni-use](https://github.com/saqqdy/uni-use/tree/master/packages/use-recognition#readme)
+
 ### **[Documentation](https://www.saqqdy.com/use-recognition)** • **[Change Log](./CHANGELOG.md)**
 
 </div>
